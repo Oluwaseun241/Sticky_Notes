@@ -14,10 +14,12 @@
     </nav>
     {% block content %}
     {% for note in notes %}
-        <h3>{{ note.note_text }}</h3>
+    <div class="container">
+        <h3 id="note-title">{{ note.note_text }}</h3>
         <p>{{ note.created_at }}</p>
+    </div>
     {% endfor %}
-    <button><a href="{% url 'create_note' %}">Create Note</a></button>
+    <a class="btn" href="{% url 'create_note' %}">Create Note</a>
     {% endblock %}
 </body>
 </html>

@@ -1,7 +1,5 @@
 <h2>Update StickyNotes</h2>
 <form method="post" action="{% url 'update_note' %}">
     {% csrf_token %}
-    <input type="hidden" name="pk" value="{{ note.pk }}">
-    <br>
     <button type="submit">Save</button>
   </form>
