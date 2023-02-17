@@ -19,7 +19,7 @@
         <br>
         <form method="post" action="{% url 'update_note' note.pk %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <input type="text" name="note_text" value="{{ note.note_text }}">
             <button type="submit">Edit</button>
         </form>
     {% endfor %}
