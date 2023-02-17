@@ -1,8 +1,9 @@
 <h2>Create StickyNotes</h2>
-    <form method="post">
+    <form method="post" action="{% url 'create_note' %}">
+        {% csrf_token %}
         <label>Add New Note</label>
         <br>
-        <textarea></textarea>
+        <textarea name="note_text" placeholder="Type a new note"></textarea>
         <br>
-        <button>Add</button>
+        <button type="submit">Add</button>
     </form>
