@@ -9,6 +9,10 @@
     <nav>
         <a href="{% url 'home' %}">My Notes</a>
     </nav>
-    {{ notes.note_text }}
+    {% for note in notes %}
+        <h3>{{ note.note_text }}</h3>
+        <p>{{ note.created_at }}</p>
+    {% endfor %}
+    <button><a href="{% url 'create_note' %}">Create Note</a></button>
 </body>
 </html>
