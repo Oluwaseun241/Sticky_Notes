@@ -1,0 +1,16 @@
+body {
+    
+}
+
+nav {
+    background: #0A1336;
+    font-family: 'DM Sans';
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+nav > a{
+    color: #ffffff;
+    font-size: 100px;
+}

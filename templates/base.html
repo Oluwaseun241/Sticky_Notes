@@ -1,28 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>StickyNotes</title>
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}"/>
+</head>
 <body>
     <nav>
         <a href="{% url 'home' %}">Sticky Notes</a>
     </nav>
+    {% block content %}
     {% for note in notes %}
         <h3>{{ note.note_text }}</h3>
         <p>{{ note.created_at }}</p>
-        <form method="post" action="{% url 'delete_note' note.pk %}">
-            {% csrf_token %}
-            <button type="submit">Delete</button>
-        </form>
-        <br>
-        <form method="post" action="{% url 'update_note' note.pk %}">
-            {% csrf_token %}
-            <input type="text" name="note_text" value="{{ note.note_text }}">
-            <button type="submit">Edit</button>
-        </form>
     {% endfor %}
     <button><a href="{% url 'create_note' %}">Create Note</a></button>
+    {% endblock %}
 </body>
 </html>

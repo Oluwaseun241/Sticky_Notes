@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import StickyNote
+from .forms import StickyNoteForm
 
 # Create your views here.
 def home(request):
@@ -8,13 +9,13 @@ def home(request):
     return render(request, 'base.html', context)
 
 def create(request):
-    context = {}
+    form = StickyNoteForm()
     if request.method == 'POST':
-        note_text = request.POST['note_text']
-        note = StickyNote.objects.create(note_text=note_text)
-        context = {'note': note}
-        return redirect('home')
-    
+        form = StickyNoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'form': form}
     return render(request, 'form.html', context)
 
 def delete(request, pk):
