@@ -24,13 +24,4 @@ def delete(request, pk):
     return redirect('home')
 
 def update(request, pk):
-    note = get_object_or_404(StickyNote, pk=pk)
-
-    if request.method == 'POST':
-        note_text = request.POST.get('note_text')
-        note.note_text = note_text
-        note.save()
-        return redirect('home')
-
-    context = {'note': note}
-    return render(request, 'update.html', context)
+    form = StickyNoteForm()
