@@ -12,17 +12,18 @@
     <nav>
         <a href="{% url 'home' %}">Sticky Notes</a>
     </nav>
+    {% block content %}
     {% for note in notes %}
     <div class="container">
         <h3 id="note-title">{{ note.note_text }}</h3>
         <p>{{ note.created_at }}</p>
-        <a href="{% url 'delete_note' note.id %}">Delete</a>
+        <a href="{% url 'delete_note' note.pk %}">Delete</a>
+        <a href="{% url 'update_note' note.pk %}">Edit</a>
     </div>
     {% endfor %}
     <a class="btn" href="{% url 'create_note' %}">Create Note</a>
     <main>
-        {% block content %}
-        {% endblock %}
+    {% endblock %}
     </main>
 </body>
 </html>

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Update StickyNotes</h2>
-<form method="post" action="{% url 'update_note' %}">
+  <form method="post" action="">
     {% csrf_token %}
-    {{form}}
+    {{ form }}
     <button type="submit">Save</button>
   </form>
 {% endblock %}
