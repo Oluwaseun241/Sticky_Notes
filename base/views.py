@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import StickyNote
 from .forms import StickyNoteForm
@@ -14,7 +15,10 @@ def create(request):
     if request.method == 'POST':
         form = StickyNoteForm(request.POST)
         if form.is_valid():
-            form.save()
+            note = form.save()
+            color = f"hsl({random.randint(0, 360)}, {random.randint(50, 100)}%, {random.randint(70, 90)}%)"
+            note.color = color
+            note.save()
             return redirect('home')
     context = {'form': form}
     return render(request, 'form.html', context)
