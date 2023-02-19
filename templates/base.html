@@ -13,7 +13,7 @@
     />
     <script src="https://kit.fontawesome.com/7c27cadb0a.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>notes app</title>
+    <title>Sticky Notes</title>
   </head>
   <body>
     <main>
@@ -30,8 +30,10 @@
           </p>
           <div>
             <p>{{ note.created_at }}</p>
-            <span><a href="{% url 'update_note' note.pk %}"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a href="{% url 'delete_note' note.pk %}"><i class="fa-regular fa-trash-can"></i></a></span>
+            <span>
+                <a href="{% url 'update_note' note.pk %}"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="{% url 'delete_note' note.pk %}"><i class="fa-regular fa-trash-can"></i></a>
+            </span>
           </div>
         </article>
         {% endfor %}

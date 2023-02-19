@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Update StickyNotes</h2>
-  <form method="post" action="">
-    {% csrf_token %}
-    <div>
-      {{ form }}
-      <button type="submit">Save</button>
-    </div>
-  </form>
+<nav>
+  <h2>Add new notes</h2>
+</nav>
+<body>
+  <main>
+    <form method="post" action="">
+      {% csrf_token %}
+      <div>
+        {{ form }}
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </main>
+</body>
 {% endblock %}

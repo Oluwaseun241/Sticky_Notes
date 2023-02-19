@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import StickyNote
 from .forms import StickyNoteForm
+from django.utils import timezone
 
 # Create your views here.
 def home(request):
@@ -28,6 +29,7 @@ def update(request, pk):
     form = StickyNoteForm(request.POST or None, instance=note)
     if form.is_valid():
         note = form.save(commit=False)
+        note.last_updated = timezone.now()
         note.save()
         return redirect('home')
     context = {'form': form}
