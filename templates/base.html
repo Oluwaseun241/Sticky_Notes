@@ -1,35 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StickyNotes</title>
-    <link rel="stylesheet" href="{% static 'styles/base.css' %}"/>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'home' %}">Sticky Notes</a>
-    </nav>
-    {% block content %}
-    {% for note in notes %}
-    <div class="container">
-        <div class="heading">
-        </div>
-        <div class="main-content">
-            <div class="note">
-            </div>
-        </div>
-        <h3 id="note-title">{{ note.note_text }}</h3>
-        <p>{{ note.created_at }}</p>
-        <a href="{% url 'delete_note' note.pk %}">Delete</a>
-        <a href="{% url 'update_note' note.pk %}">Edit</a>
-    </div>
-    {% endfor %}
-    <a class="btn" href="{% url 'create_note' %}">Create Note</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/7c27cadb0a.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notes app</title>
+  </head>
+  <body>
     <main>
-    {% endblock %}
+        {% block content %}
+      <nav>
+        <h1>My notes</h1>
+        <a href="{% url 'create_note' %}"> <i class="fa-solid fa-plus"></i> &nbsp; Add a note</a>
+      </nav>
+      <section>
+        {% for note in notes %}
+        <article>
+          <p>
+            {{ note.note_text }}
+          </p>
+          <div>
+            <p>{{ note.created_at }}</p>
+            <span><a href="{% url 'update_note' note.pk %}"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="{% url 'delete_note' note.pk %}"><i class="fa-regular fa-trash-can"></i></a></span>
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+      {% endblock %}
     </main>
-</body>
+  </body>
 </html>
