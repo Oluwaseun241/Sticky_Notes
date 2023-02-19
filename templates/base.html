@@ -29,7 +29,7 @@
             {{ note.note_text }}
           </p>
           <div>
-            <p>{{ note.created_at }}</p>
+            <p>{% if note.last_updated %} {{ note.last_updated }} {% else %} {{ note.created_at }} {% endif %}</p>
             <span>
                 <a href="{% url 'update_note' note.pk %}"><i class="fa-regular fa-pen-to-square"></i></a>
                 <a href="{% url 'delete_note' note.pk %}"><i class="fa-regular fa-trash-can"></i></a>
