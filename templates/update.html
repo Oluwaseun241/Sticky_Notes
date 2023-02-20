@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<nav>
-  <h2>Add new notes</h2>
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1 fs-1 fw-bold mx-auto">Edit Note</span>
+  </div>
 </nav>
 <body>
   <main>
@@ -10,7 +12,7 @@
       {% csrf_token %}
         {{ form|crispy }}
         <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-primary fs-3" type="submit" style="background-color: #0A1336;">Save</button>
       </div>
     </form>
   </main>
