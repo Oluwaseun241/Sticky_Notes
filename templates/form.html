@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 <h2>Create StickyNotes</h2>
     <form method="post" action="{% url 'create_note' %}" autocomplete="off">
         {% csrf_token %}
-        {{form}}
-        <button type="submit">Add</button>
+        {{form| crispy}}
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Add New Notes</button>
+          </div>
     </form>
 {% endblock %}
