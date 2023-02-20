@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Create StickyNotes</h2>
-    <form class="random-color" method="post" action="{% url 'create_note' %}">
+    <form method="post" action="{% url 'create_note' %}">
         {% csrf_token %}
         {{form}}
         <button type="submit">Add</button>

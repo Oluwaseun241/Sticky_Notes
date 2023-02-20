@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
     <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +25,7 @@
       </nav>
       <section>
         {% for note in notes %}
-        <article>
+        <article style="background-color: {{ note.background_color }};">
           <p>
             {{ note.note_text }}
           </p>

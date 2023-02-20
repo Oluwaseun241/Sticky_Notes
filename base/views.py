@@ -15,9 +15,8 @@ def create(request):
     if request.method == 'POST':
         form = StickyNoteForm(request.POST)
         if form.is_valid():
-            note = form.save()
-            color = f"hsl({random.randint(0, 360)}, {random.randint(50, 100)}%, {random.randint(70, 90)}%)"
-            note.color = color
+            note = form.save(commit=False)
+            note.background_color = '#{:06x}'.format(random.randint(0, 0xFFFFFF))
             note.save()
             return redirect('home')
     context = {'form': form}
