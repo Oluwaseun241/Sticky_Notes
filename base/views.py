@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import StickyNote
 from .forms import StickyNoteForm
 from django.utils import timezone
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -18,6 +19,7 @@ def create(request):
             note = form.save(commit=False)
             note.background_color = '#{:06x}'.format(random.randint(0, 0xFFFFFF))
             note.save()
+            messages.success(request, 'Note created sucessfully')
             return redirect('home')
     context = {'form': form}
     return render(request, 'form.html', context)
@@ -25,6 +27,7 @@ def create(request):
 def delete(request, pk):
     note = get_object_or_404(StickyNote, pk=pk)
     note.delete()
+    messages.success(request, 'Note deleted successfully')
     return redirect('home')
 
 def update(request, pk):
