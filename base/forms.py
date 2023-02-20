@@ -11,8 +11,8 @@ class StickyNoteForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'note_text': forms.Textarea(attrs={'rows': 5, 'style': 'font-size: 16px'}),
-            'background_color': forms.TextInput(attrs={'type': 'color', 'style': 'width: 100px'})
+            'note_text': forms.Textarea(attrs={'rows': 4, 'style': 'font-size: 16px'}),
+            'background_color': forms.TextInput(attrs={'type': 'color', 'style': 'width: 50px'})
         }
 
     def __init__(self, *args, **kwargs):
