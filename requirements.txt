@@ -48,4 +48,5 @@ tzdata==2022.7
 urllib3==1.26.14
 virtualenv==20.19.0
 webencodings==0.5.1
+whitenoise==6.3.0
 zipp==3.14.0
