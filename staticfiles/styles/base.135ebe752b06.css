@@ -1,0 +1,129 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+main {
+  max-width: 1220px;
+  width: 100%;
+  padding: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+nav h1 {
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+nav a {
+  padding: 1rem 5rem;
+  background-color: #0a1336;
+  color: #fff;
+  border-radius: 3rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  gap: 2rem;
+}
+
+section article {
+  background-color: lightsalmon;
+  min-height: 15rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+  color: #0a1336;
+}
+
+article div {
+  display: flex;
+  justify-content: space-between;
+}
+
+article div span {
+  display: flex;
+  gap: 1rem;
+}
+
+article div span a {
+  text-decoration: none;
+  color: #0a1336;
+}
+
+.yellow-color {
+  background-color: #fcf5d2;
+}
+
+.green-color {
+  background-color: #d2fcde;
+}
+
+.purple-color {
+  background-color: #fcd2f8;
+}
+
+.red-color {
+  background-color: #fcd9d2;
+}
+
+@media (min-width: 500px) {
+  main {
+    margin: 0 auto;
+  }
+
+  nav {
+    flex-direction: row;
+  }
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
