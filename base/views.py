@@ -7,7 +7,7 @@ from django.contrib import messages
 
 # Create your views here.
 def home(request):
-    notes = StickyNote.objects.all()
+    notes = StickyNote.objects.order_by('-last_updated')
     context = {'notes': notes}
     return render(request, 'base.html', context)
 

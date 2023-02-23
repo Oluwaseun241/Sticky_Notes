@@ -27,7 +27,9 @@
       </nav>
       <section>
         {% for note in notes %}
-        <article style="background-color: {{ note.background_color }};">
+        <article
+          style="background-color: {{ note.background_color }}; color: {% if note.background_color == '#000000' %}white{% else %}black{% endif %}"
+        >
           <p>
             {{ note.note_text }}
           </p>
