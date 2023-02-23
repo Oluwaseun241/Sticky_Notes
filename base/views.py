@@ -4,12 +4,10 @@ from .models import StickyNote
 from .forms import StickyNoteForm
 from django.utils import timezone
 from django.contrib import messages
-from django.views.decorators.cache import cache_control
 
 # Create your views here.
-@cache_control(no_cache=True, must_revalidate=True)
 def home(request):
-    notes = StickyNote.objects.all()
+    notes = StickyNote.objects.order_by('-last_updated')
     context = {'notes': notes}
     return render(request, 'base.html', context)
 
